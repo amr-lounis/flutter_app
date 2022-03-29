@@ -1,5 +1,6 @@
 # flutter_app
 Do [Ctrl] + [Shift] + [P] =>  flutter : select device => [f5]
+enable windows devloper
 
 flutter create flutter_app
 # 
