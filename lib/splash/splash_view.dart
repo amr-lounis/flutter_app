@@ -20,10 +20,7 @@ class SplashView extends StatelessWidget {
           child: null,
         ),
         ElevatedButton(
-          onPressed: (() {
-            sharedPref!.setString("id", "1");
-            print("${sharedPref!.getString("id")}");
-          }),
+          onPressed: (() {}),
           child: null,
         )
       ],

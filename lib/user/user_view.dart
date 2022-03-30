@@ -9,15 +9,8 @@ class UserView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final uc.UserController c = Get.find();
-    return ListView(
-      children: [
-        Text("user_view"),
-        GetBuilder<uc.UserController>(builder: ((c) => Text("${c.count}"))),
-        ElevatedButton(
-          onPressed: (() => c.inc()),
-          child: null,
-        ),
-      ],
-    );
+    return ListView(children: [
+      Text("User view "),
+    ]);
   }
 }
