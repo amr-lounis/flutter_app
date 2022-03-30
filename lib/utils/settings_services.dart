@@ -1,19 +1,23 @@
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:get_storage/get_storage.dart';
 
 class SettingServices extends GetxService {
-  late SharedPreferences shared_preferences;
   RxInt count = 0.obs;
+  String local = 'en';
 
   Future<SettingServices> init() async {
-    shared_preferences = await SharedPreferences.getInstance();
-    count.value = shared_preferences.getInt("count") ?? 0;
+    await GetStorage.init();
+    count.value = GetStorage().read<int>("count") ?? 0;
+    local = GetStorage().read<String>("local") ?? 'en';
     return this;
   }
 
-  void inc() {
+  void localStor(String _local) {
+    GetStorage().write("local", _local);
+  }
+
+  void countInc() {
     count.value++;
-    print("${count.value}");
-    shared_preferences.setInt("count", count.value);
+    GetStorage().write("count", count.value);
   }
 }

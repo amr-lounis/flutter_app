@@ -9,7 +9,7 @@ class GlobalMiddleware extends GetMiddleware {
     return (route == "/spalsh")
         ? null
         : RouteSettings(
-            name: "/user",
+            name: "/local",
           );
   }
 

@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/utils/settings_services.dart';
 import 'package:get/get.dart';
+//
+import 'package:flutter_app/local/local_translation.dart';
+//
+import 'package:flutter_app/utils/settings_services.dart';
+//
+import 'local/local_bindings.dart';
+import 'local/local_view.dart';
 //
 import 'middleware/auth_middleware.dart';
 //
@@ -23,9 +29,14 @@ class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    SettingServices ss = Get.find();
+    print(ss.local);
     print("----- : App :-------");
     return GetMaterialApp(
       initialRoute: '/splash',
+      translations: LocalTranslations(),
+      locale: Locale(ss.local),
+      fallbackLocale: Locale('en'),
       getPages: [
         GetPage(
           name: '/splash',
@@ -43,6 +54,11 @@ class App extends StatelessWidget {
           binding: TodoBindings(),
           page: () => TodoView(),
         ),
+        GetPage(
+          name: '/local',
+          binding: LocalBindings(),
+          page: () => LocalView(),
+        )
       ],
     );
   }

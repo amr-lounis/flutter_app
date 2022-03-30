@@ -6,6 +6,7 @@ flutter create flutter_app
 # 
 flutter pub add get
 flutter pub add shared_preferences
+flutter pub add get_storage
 flutter pub add jiffy
 flutter pub add awesome_dialog
 flutter pub add dropdown_search

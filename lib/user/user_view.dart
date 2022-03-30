@@ -16,10 +16,9 @@ class UserView extends GetView<SettingServices> {
       Text("User view "),
       Obx(() => Text("${controller.count}")),
       ElevatedButton(
-          onPressed: () {
-            controller.inc();
-          },
-          child: null)
+        onPressed: () => controller.countInc(),
+        child: Icon(Icons.add),
+      ),
     ]);
   }
 }
