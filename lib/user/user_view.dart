@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/utils/settings_services.dart';
 import 'package:get/get.dart';
+//
+import 'user_controller.dart';
 
-import './user_controller.dart' as uc;
-
-class UserView extends StatelessWidget {
+//
+class UserView extends GetView<SettingServices> {
   const UserView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final uc.UserController c = Get.find();
+    // final UserController c = Get.find();
+    // final SettingServices s = Get.find();
     return ListView(children: [
       Text("User view "),
+      Obx(() => Text("${controller.count}")),
+      ElevatedButton(
+          onPressed: () {
+            controller.inc();
+          },
+          child: null)
     ]);
   }
 }
