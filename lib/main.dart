@@ -18,6 +18,9 @@ import 'todo/todo_bindings.dart';
 //
 import 'user/user_bindings.dart';
 import 'user/user_view.dart';
+//
+import 'xxx/xxx_bindings.dart';
+import 'xxx/xxx_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,10 +36,11 @@ class App extends StatelessWidget {
     print(ss.local);
     print("----- : App :-------");
     return GetMaterialApp(
-      initialRoute: '/splash',
+      initialRoute: '/xxx',
       translations: LocalTranslations(),
       locale: Locale(ss.local),
       fallbackLocale: Locale('en'),
+      theme: ThemeData.light(),
       getPages: [
         GetPage(
           name: '/splash',
@@ -58,7 +62,12 @@ class App extends StatelessWidget {
           name: '/local',
           binding: LocalBindings(),
           page: () => LocalView(),
-        )
+        ),
+        GetPage(
+            name: '/xxx',
+            binding: XXXBindings(),
+            page: () => XXXView(),
+            arguments: {'name': 'amar'})
       ],
     );
   }
