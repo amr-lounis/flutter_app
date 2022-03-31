@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/utils/settings_services.dart';
 import 'package:get/get.dart';
 //
 import 'user_controller.dart';
 
 //
-class UserView extends GetView<SettingServices> {
+class UserView extends GetView<UserController> {
   const UserView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // final UserController c = Get.find();
-    // final SettingServices s = Get.find();
-    return ListView(children: [
-      Text("User view "),
-      Obx(() => Text("${controller.count}")),
-      ElevatedButton(
-        onPressed: () => controller.countInc(),
-        child: Icon(Icons.add),
-      ),
-    ]);
+    return Scaffold(
+        appBar: AppBar(title: Text("XXX view")),
+        body: ListView(children: [
+          Text("User view "),
+          Obx(() => Text("${controller.count}")),
+          ElevatedButton(
+            onPressed: () => controller.countInc(),
+            child: Icon(Icons.add),
+          ),
+        ]));
   }
 }

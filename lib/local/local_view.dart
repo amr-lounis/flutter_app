@@ -9,15 +9,16 @@ class LocalView extends GetView<LocalController> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(children: [
-      Text("Local view"),
-      Text("1".tr),
-      Text("2".tr),
-      Text("3".tr),
-      ElevatedButton(
-          onPressed: () => controller.localSet("en"), child: Text("en")),
-      ElevatedButton(
-          onPressed: () => controller.localSet("ar"), child: Text("ar")),
-    ]);
+    return Scaffold(
+        appBar: AppBar(title: Text("Local view")),
+        body: ListView(children: [
+          Text("1".tr),
+          Text("2".tr),
+          Text("3".tr),
+          ElevatedButton(
+              onPressed: () => controller.localSet("en"), child: Text("en")),
+          ElevatedButton(
+              onPressed: () => controller.localSet("ar"), child: Text("ar")),
+        ]));
   }
 }
