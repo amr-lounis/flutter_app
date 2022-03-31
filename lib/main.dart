@@ -25,7 +25,7 @@ import 'xxx/xxx_view.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Get.putAsync(() => SettingServices().init());
-  runApp(App());
+  runApp(const App());
 }
 
 class App extends StatelessWidget {
@@ -40,13 +40,16 @@ class App extends StatelessWidget {
       translations: LocalTranslations(),
       locale: Locale(ss.local),
       fallbackLocale: Locale('en'),
-      theme: ThemeData.light(),
+      theme: ThemeData.light(), // Provide light theme.
+      // darkTheme: ThemeData.dark(), // Provide dark theme.
+      // themeMode: ThemeMode.dark, // Decides which theme to show.
+      //home: MyHomePage(title: 'h'),
       getPages: [
         GetPage(
           name: '/splash',
           binding: SplashBindings(),
           page: () => SplashView(),
-          middlewares: [GlobalMiddleware()],
+          // middlewares: [GlobalMiddleware()],
         ),
         GetPage(
           name: '/user',
@@ -64,10 +67,10 @@ class App extends StatelessWidget {
           page: () => LocalView(),
         ),
         GetPage(
-            name: '/xxx',
-            binding: XXXBindings(),
-            page: () => XXXView(),
-            arguments: {'name': 'amar'})
+          name: '/xxx',
+          binding: XXXBindings(),
+          page: () => XXXView(),
+        )
       ],
     );
   }
