@@ -14,7 +14,6 @@ class SplashView extends GetView<SplashView> {
         body: ListView(
           children: [
             GetBuilder<SplashController>(builder: ((c) => Text("${c.count}"))),
-            Text("${c.count}"),
             ElevatedButton(
               onPressed: (() => c.inc()),
               child: null,

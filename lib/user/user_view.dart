@@ -10,10 +10,9 @@ class UserView extends GetView<UserController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("XXX view")),
+        appBar: AppBar(title: Text("User view ")),
         body: ListView(children: [
-          Text("User view "),
-          Obx(() => Text("${controller.count}")),
+          GetBuilder<UserController>(builder: (c) => Text("${c.count}")),
           ElevatedButton(
             onPressed: () => controller.countInc(),
             child: Icon(Icons.add),
