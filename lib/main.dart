@@ -36,11 +36,11 @@ class App extends StatelessWidget {
     print(ss.local);
     print("----- : App :-------");
     return GetMaterialApp(
-      initialRoute: '/local',
+      initialRoute: '/xxx',
       translations: LocalTranslations(),
       locale: Locale(ss.local),
       fallbackLocale: Locale('en'),
-      theme: ThemeData.light(), // Provide light theme.
+      theme: ss.themeGet(), // Provide light theme.
       getPages: [
         GetPage(
           name: '/splash',

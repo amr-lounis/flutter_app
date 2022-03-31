@@ -7,18 +7,21 @@ class XXXView extends GetView<XXXController> {
   @override
   Widget build(BuildContext context) {
     //     XXXController controller = Get.find();
-    print(Get.width);
-    print(Get.height);
-    print(GetPlatform.isWeb ? 'web' : 'other');
-    print(GetPlatform.isWindows ? 'Windows' : 'not Windows');
-    print(GetPlatform.isAndroid ? 'Android' : 'not Android');
-    print(context.isLandscape ? 'Landscape' : 'not Landscape');
-    print(context.isPortrait ? 'Portrait' : 'not Portrait');
-    print(Get.routing.previous);
-    print(Get.routing.current);
+    // print(Get.width);
+    // print(Get.height);
+    // print(GetPlatform.isWeb ? 'web' : 'other');
+    // print(GetPlatform.isWindows ? 'Windows' : 'not Windows');
+    // print(GetPlatform.isAndroid ? 'Android' : 'not Android');
+    // print(context.isLandscape ? 'Landscape' : 'not Landscape');
+    // print(context.isPortrait ? 'Portrait' : 'not Portrait');
+    // print(Get.routing.previous);
+    // print(Get.routing.current);
 
     return Scaffold(
-      appBar: AppBar(title: Text("XXX view")),
+      appBar: AppBar(
+        title: Text("XXX view"),
+        bottomOpacity: 10,
+      ),
       body: ListView(children: [
         //--------------------------------------------------------------------- count
         GetBuilder<XXXController>(builder: (c) => Text("${c.count}")),
@@ -70,13 +73,7 @@ class XXXView extends GetView<XXXController> {
         //--------------------------------------------------------------------- Theme change
         ElevatedButton(
           onPressed: () {
-            if (Get.isDarkMode) {
-              print('dark -> lith');
-              Get.changeTheme(ThemeData.light());
-            } else {
-              print('lith -> dark');
-              Get.changeTheme(ThemeData.dark());
-            }
+            controller.themeChange();
           },
           child: Text("Theme change"),
         )
