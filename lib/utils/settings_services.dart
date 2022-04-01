@@ -22,7 +22,8 @@ class SettingServices extends GetxService {
   }
 
   //----------------------------------------------------------------------------
-  void localStor(String _local) {
+  void localChange(String _local) {
+    Get.updateLocale(Locale(_local));
     GetStorage().write(keyLocal, _local);
   }
 
