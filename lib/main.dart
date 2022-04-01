@@ -36,7 +36,7 @@ class App extends StatelessWidget {
     print(ss.local);
     print("----- : App :-------");
     return GetMaterialApp(
-      initialRoute: '/xxx',
+      initialRoute: '/sign',
       translations: LocalTranslations(),
       locale: Locale(ss.local),
       fallbackLocale: Locale('en'),
@@ -62,6 +62,11 @@ class App extends StatelessWidget {
           name: '/local',
           binding: LocalBindings(),
           page: () => LocalView(),
+        ),
+        GetPage(
+          name: '/sign',
+          binding: XXXBindings(),
+          page: () => XXXView(),
         ),
         GetPage(
           name: '/xxx',
