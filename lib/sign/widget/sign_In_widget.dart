@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'text_field_password.dart';
+import 'text_field_email.dart';
 
-///////////////////////////////////////////////////////////////////////////////
+//------------------------------------------------------------------------------
 class SignInWidget extends StatelessWidget {
   SignInWidget({this.onSignIn});
   //
@@ -22,8 +24,8 @@ class SignInWidget extends StatelessWidget {
           child: Form(
             key: _formKey,
             child: Column(children: <Widget>[
-              _buildEmailTextField(),
-              _buildPasswordTextField(),
+              TextFieldEmail(),
+              TextFieldPassword(),
               _buildLoginRaisedButton(),
             ]),
           ),
@@ -32,73 +34,9 @@ class SignInWidget extends StatelessWidget {
     );
   }
 
-  ////////////////////////////////////////////////////////////////////////////////
-  Widget _buildEmailTextField() {
-    return Container(
-        child: Padding(
-            padding: EdgeInsets.only(),
-            child: TextFormField(
-              style: TextStyle(color: Colors.red),
-              decoration: InputDecoration(
-                enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red, width: 1.0)),
-                focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red, width: 1.0)),
-                prefixIcon: const Icon(
-                  Icons.perm_identity,
-                  color: Colors.blue,
-                ),
-                labelText: 'E-Mail',
-              ),
-              obscureText: false,
-              keyboardType: TextInputType.emailAddress,
-              validator: (String? value) {
-                if (value!.isEmpty) {
-                  return 'Invalid email';
-                } else
-                  return null;
-              },
-              onSaved: (String? value) {
-                email = value ?? "";
-              },
-            )));
-  }
-
-  //////////////////////////////////////////////////////////////////////////////
-  Widget _buildPasswordTextField() {
-    return Container(
-        child: Padding(
-            padding: EdgeInsets.only(),
-            child: TextFormField(
-              style: TextStyle(color: Colors.red),
-              decoration: InputDecoration(
-                enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red, width: 1.0)),
-                focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red, width: 1.0)),
-                prefixIcon: const Icon(
-                  Icons.lock,
-                  color: Colors.blue,
-                ),
-                labelText: 'Password',
-              ),
-              obscureText: true,
-              keyboardType: TextInputType.text,
-              validator: (String? value) {
-                if (value!.isEmpty) {
-                  return 'Invalid Password';
-                } else
-                  return null;
-              },
-              onSaved: (String? value) {
-                password = value ?? '';
-              },
-            )));
-  }
-
-////////////////////////////////////////////////////////////////////////////////
+//------------------------------------------------------------------------------
   Widget _buildLoginRaisedButton() {
-    return RaisedButton(
+    return ElevatedButton(
       child: Text("Sign in"),
       onPressed: () {
         if (!_formKey.currentState!.validate()) return;
@@ -107,5 +45,4 @@ class SignInWidget extends StatelessWidget {
       },
     );
   }
-////////////////////////////////////////////////////////////////////////////////
 }

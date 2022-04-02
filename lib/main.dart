@@ -21,6 +21,9 @@ import 'user/user_view.dart';
 //
 import 'xxx/xxx_bindings.dart';
 import 'xxx/xxx_view.dart';
+//
+import 'sign/sign_bindings.dart';
+import 'sign/sign_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -65,8 +68,8 @@ class App extends StatelessWidget {
         ),
         GetPage(
           name: '/sign',
-          binding: XXXBindings(),
-          page: () => XXXView(),
+          binding: SignBindings(),
+          page: () => SignView(),
         ),
         GetPage(
           name: '/xxx',
