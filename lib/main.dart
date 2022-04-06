@@ -18,12 +18,11 @@ import 'todo/todo_bindings.dart';
 //
 import 'user/user_bindings.dart';
 import 'user/user_view.dart';
+import 'user/sign_view.dart';
 //
 import 'xxx/xxx_bindings.dart';
 import 'xxx/xxx_view.dart';
 //
-import 'sign/sign_bindings.dart';
-import 'sign/sign_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +38,7 @@ class App extends StatelessWidget {
     print(ss.local);
     print("----- : App :-------");
     return GetMaterialApp(
-      initialRoute: '/sign',
+      initialRoute: '/user',
       translations: LocalTranslations(),
       locale: Locale(ss.local),
       fallbackLocale: Locale('en'),
@@ -68,7 +67,7 @@ class App extends StatelessWidget {
         ),
         GetPage(
           name: '/sign',
-          binding: SignBindings(),
+          binding: UserBindings(),
           page: () => SignView(),
         ),
         GetPage(

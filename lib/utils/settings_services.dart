@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class SettingServices extends GetxService {
   int count = 0;
@@ -18,6 +21,7 @@ class SettingServices extends GetxService {
     count = GetStorage().read<int>(keyCount) ?? 0;
     local = GetStorage().read<String>(keyLocal) ?? 'en';
     themName = GetStorage().read<String>(keyThemName) ?? 'light';
+    await Firebase.initializeApp();
     return this;
   }
 

@@ -24,8 +24,12 @@ class SignInWidget extends StatelessWidget {
           child: Form(
             key: _formKey,
             child: Column(children: <Widget>[
-              TextFieldEmail(),
-              TextFieldPassword(),
+              TextFieldEmail(onSave: (String? value) {
+                email = value ?? "";
+              }),
+              TextFieldPassword(onSave: (String? value) {
+                password = value ?? "";
+              }),
               _buildLoginRaisedButton(),
             ]),
           ),
@@ -39,7 +43,7 @@ class SignInWidget extends StatelessWidget {
     return ElevatedButton(
       child: Text("Sign in"),
       onPressed: () {
-        if (!_formKey.currentState!.validate()) return;
+        if (!_formKey.currentState!.validate()) {}
         _formKey.currentState!.save();
         this.onSignIn!(this.email, this.password);
       },

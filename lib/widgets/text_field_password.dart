@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class TextFieldPassword extends StatelessWidget {
-  TextFieldPassword();
+  TextFieldPassword({required this.onSave});
   //
-  Function(String email, String password)? onSignIn;
   String password = '';
+  final Function(String?) onSave;
 
   @override
   Widget build(BuildContext cntxt) {
@@ -12,10 +12,10 @@ class TextFieldPassword extends StatelessWidget {
         child: Padding(
             padding: EdgeInsets.only(),
             child: TextFormField(
-              style: TextStyle(color: Colors.red),
+              style: TextStyle(color: Colors.blue),
               decoration: InputDecoration(
                 enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red, width: 1.0)),
+                    borderSide: BorderSide(color: Colors.yellow, width: 1.0)),
                 focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.red, width: 1.0)),
                 prefixIcon: const Icon(
@@ -27,14 +27,11 @@ class TextFieldPassword extends StatelessWidget {
               obscureText: true,
               keyboardType: TextInputType.text,
               validator: (String? value) {
-                if (value!.isEmpty) {
-                  return 'Invalid Password';
-                } else
-                  return '';
+                return ((value == null) | (value == ''))
+                    ? 'Invalid Password'
+                    : '';
               },
-              onSaved: (String? value) {
-                password = value ?? '';
-              },
+              onSaved: onSave,
             )));
   }
 }
